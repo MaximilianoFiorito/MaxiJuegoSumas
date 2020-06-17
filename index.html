@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+    <h1>Toca el boton 10 veces</h1>
+    <p id="contador"></p>
+    <p id="timerF"></p>
+    <p id="ganaste"></p>
+    <p id="perdiste"></p>
+</head>
+<body> 
+    <button id="facil" onclick="tiempo();tiempo3()">Facil</button>
+    <button id="dificil" onclick="tiempo1();tiempo4()">Dificil</button>
+    <button id="extremo" onclick="tiempo2();tiempo5()">Extremo</button><br>
+    <button id="boton" onclick="puntos();teleport()">Boton</button>
+</body>
+    
+</html>
+
+<script>
+    var contador = 1;
+    var timerF = 20;
+    var timerD = 35;
+    var timerE = 60;
+    var timer = null;
+    var timer2 = null;
+    document.getElementById("boton").style.display = "none";
+
+    function teleport(){
+        var top = (Math.floor(Math.random() * 40));
+        var left = (Math.floor(Math.random() * 90));
+        document.getElementById("boton").style.top = top;
+        document.getElementById("boton").style.left = left;
+        var style = "margin-top:" + top + "%;margin-left:" + left +"%;";
+        document.getElementById("boton").setAttribute("style", style);
+        if(contador == 11){
+        document.getElementById("boton").disabled = true
+        document.getElementById("ganaste").innerHTML = "Lo lograste!!"
+        }
+    }
+    function tiempo(){
+        timer = setInterval(teleport,3000);
+        document.getElementById("boton").style.display = "block";
+        document.getElementById("facil").style.display = "none";
+        document.getElementById("dificil").style.display = "none";
+        document.getElementById("extremo").style.display = "none";
+    }
+    function tiempo1(){
+        timer = setInterval(teleport,1000);
+        document.getElementById("boton").style.display = "block";
+        document.getElementById("facil").style.display = "none";
+        document.getElementById("dificil").style.display = "none";
+        document.getElementById("extremo").style.display = "none";
+    }
+    function tiempo2(){
+        timer = setInterval(teleport,500);
+        document.getElementById("boton").style.display = "block";
+        document.getElementById("facil").style.display = "none";
+        document.getElementById("dificil").style.display = "none";
+        document.getElementById("extremo").style.display = "none";
+    }
+    function tiempo3(){
+        timer2 = setInterval(contadorseg,1000);
+    }
+    function tiempo4(){
+        timer2 = setInterval(contadorseg1,1000);
+    }
+    function tiempo5(){
+        timer2 = setInterval(contadorseg2,1000);
+    }
+    function contadorseg(){
+        timerF = timerF - 1;
+        document.getElementById("timerF").innerHTML = "Tiempo " + timerF + "s";
+        if(contador == 11){
+            clearInterval(timer2);
+            document.getElementById("timerF").style.display = "none";
+        }
+        if(timerF == 0){
+            document.getElementById("boton").disabled = true
+            document.getElementById("perdiste").innerHTML = "No lo lograste"
+            clearInterval(timer);
+            clearInterval(timer2); 
+        }
+    }
+    function contadorseg1(){
+        timerD = timerD - 1;
+        document.getElementById("timerF").innerHTML = "Tiempo " + timerD + "s";
+        if(contador == 11){
+            clearInterval(timer2);
+            document.getElementById("timerF").style.display = "none";
+        }
+        if(timerD == 0){
+            document.getElementById("boton").disabled = true
+            document.getElementById("perdiste").innerHTML = "No lo lograste"
+            clearInterval(timer);
+            clearInterval(timer2); 
+        }
+    }
+    function contadorseg2(){
+        timerE = timerE - 1;
+        document.getElementById("timerF").innerHTML = "Tiempo " + timerE + "s";
+        if(contador == 11){
+            clearInterval(timer2);
+            document.getElementById("timerF").style.display = "none";
+        }
+        if(timerE == 0){
+            document.getElementById("boton").disabled = true
+            document.getElementById("perdiste").innerHTML = "No lo lograste"
+            clearInterval(timer);
+            clearInterval(timer2); 
+        }
+    }
+    function puntos(){
+        document.getElementById("contador").innerHTML = "Clicks con exito = " + contador;
+        if(contador < 11){
+            contador = contador + 1;
+            console.log(contador);
+            if(contador == 11){
+                clearInterval(timer);
+            }
+        }
+    }
+
+</script>
