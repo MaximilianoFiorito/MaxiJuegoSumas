@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Añadir Contactos</title>
     <meta charset="UTF-8">
-
     <style>
         #volver {
             float: left;
@@ -17,7 +16,7 @@
     </style>
     <button id="volver" onclick="window.location='../index2.html'" class="btn btn-success col-2">Volver al menú anterior</button>
     <button id="verContactos" onclick="window.location='./contactos.html'" class="btn btn-success col-2">Ver Contactos</button>
-    <script src="../src/index2.js"></script>
+    <script src="../lib/index2.js"></script>
 </head>
 <body>
     <div class="container text-center">
@@ -26,7 +25,7 @@
 
         <input id="nombre" type="text">Ingrese el nombre<br>
         <input id="telefono" type="number">Ingrese el numero telefonico<br><br>
-        <button onclick="guardarContact()" class="btn btn-info">Guardar</button>
+        <button id="boton" onclick="guardarContact()" class="btn btn-info">Guardar</button>
         <button onclick="verContact()" class="btn btn-info">Ver</button>
         <p id="name"></p>
         <p id="celu"></p>

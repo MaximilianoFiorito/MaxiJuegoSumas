@@ -1,16 +1,22 @@
-let nombre, telefono;
+var contactos = JSON.parse(localStorage.getItem("contactosArray"));
+var name = document.getElementById("nombre");
+var tel = document.getElementById("telefono");
 
 guardarContact = () => {
-    nombre = document.getElementById("nombre").value;
-    telefono = document.getElementById("telefono").value;
-    localStorage.name = nombre; 
-    localStorage.telef = telefono;
-    document.getElementById("name").innerHTML = localStorage.name;
-    document.getElementById("celu").innerHTML = localStorage.telef;
+    if(contactos){
+        contactos = [];
+        var contacto = {
+            nombre: name,
+            telefono: tel,
+        };
+        contactos.push(contacto);
+        localStorage.setItem("contactosArray",JSON.stringify(contactos));
+        document.getElementById("name").innerHTML = nombre;
+    }
 }
 
 verContact = () => {
-    document.getElementById("test").innerHTML = localStorage.name;
-    document.getElementById("test2").innerHTML = localStorage.telef;
+    document.getElementById("test").innerHTML = name;
+    document.getElementById("test2").innerHTML = tel;
 }
 
