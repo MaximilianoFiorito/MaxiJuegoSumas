@@ -9,28 +9,52 @@
             float: left;
             color:black
         }
-        #verContactos {
+        #instruc {
             float: right;
-            color:black
+            color: white;
         }
     </style>
     <button id="volver" onclick="window.location='../index2.html'" class="btn btn-success col-2">Volver al menú anterior</button>
-    <button id="verContactos" onclick="window.location='./contactos.html'" class="btn btn-success col-2">Ver Contactos</button>
+    <button type="button" id="instruc" class="btn btn-primary col-2" data-toggle="modal" data-target="#myModal">Instrucciones</button>
     <script src="../lib/index2.js"></script>
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Instrucciones</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+              Para editar los contactos, simplemente debe seleccionar el contacto y rellenar la planilla con los nuevos datos y clickear en guardar
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+
+
 </head>
-<body>
+<body onload="mostrarContactos()">
     <div class="container text-center">
         <h1>Añada sus Contactos</h1>
     </div><br>
-
         <input id="nombre" type="text">Ingrese el nombre<br>
         <input id="telefono" type="number">Ingrese el numero telefonico<br><br>
         <button id="boton" onclick="guardarContact()" class="btn btn-info">Guardar</button>
-        <button onclick="verContact()" class="btn btn-info">Ver</button>
-        <div id="name"></div>
-
-
-
+        <input type="hidden" id="contacto_id"> 
+        <div id="name" class="d-flex flex-column">
+        </div>
+              
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
