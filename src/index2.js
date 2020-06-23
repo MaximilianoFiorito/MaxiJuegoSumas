@@ -30,7 +30,9 @@ const guardarContact = () => {
     newButton.setAttribute("onclick", `editContact(${id})`);
     newButton.setAttribute("id", 'button_' + id);
     document.getElementById("name").appendChild(newButton);
-  } else {
+  
+  } /* Aqui se edita el contacto por que YOLO */ 
+  else {
     let contacto = {
       id: id,
       nombre: name,
@@ -40,11 +42,23 @@ const guardarContact = () => {
     localStorage.setItem("contactosArray", JSON.stringify(contactos));
     document.getElementById("button_" + id).innerHTML = nombreh + name + espacio + telh + tel;
     document.getElementById("contacto_id").value = "";
+    document.getElementById("nombre").value = "";
+    document.getElementById("telefono").value = "";
+    document.getElementById("titleEdit").innerHTML = "Agregar Contacto";
   }
 };
 
 const editContact = (id) => {
   document.getElementById("contacto_id").value = id;
+  
+  let contactos = JSON.parse(localStorage.getItem("contactosArray"));
+  let contacto = contactos[id-1];
+  console.log(contacto);
+
+  document.getElementById("nombre").value = contacto.nombre;
+  document.getElementById("telefono").value = contacto.telefono;
+
+  document.getElementById("titleEdit").innerHTML = "Se esta editando el contacto numero "+contacto.nombre;
 };
 
 const mostrarContactos = () => {
