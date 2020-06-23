@@ -81,6 +81,6 @@ const borrarContact = () => {
   document.getElementById("telefono").value = "";
   document.getElementById("titleEdit").innerHTML = "Agregar Contacto";
   let contactos = JSON.parse(localStorage.getItem("contactosArray"));
-  contactos.splice(id-1, 1);
+  contactos.splice(parseInt(id)-1, 1);
   localStorage.setItem("contactosArray", JSON.stringify(contactos));
 }
